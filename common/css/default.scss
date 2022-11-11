@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #39d4ce; /*基本色*/
+  --flag-color: #e8b554; /*标志色*/
+  --base-bg: #000000; /*基本的背景颜色*/
+  --base-bg2: #ffffff; /*背景颜色*/
+  --base-bg3: #e4ebeb; /*背景颜色*/
+  --base-bg4: #f5f7f7; /*背景颜色*/
+  --base-bg5: #f7f7f7; /*背景颜色*/
+  --base-bg-shade: rgba(0, 0, 0, 0.3); /*遮罩背景*/
+  --insIcon-color: #0b66c3; /*ins的图标颜色*/
+  --body-color2: #ffffff; /*部分背景颜色*/
+  --body-color3: #cccccc; /*全局的标题颜色和部分背景色*/
+  --body-color4: #666666; /*二级标题和部分文字颜色*/
+  --body-color5: #999999; /*用于不明显的文字*/
+  --body-color1: #000000; /*基本字体颜色*/
+  --error-color: #ff4d4f; /*错误色*/
+  --error-color2: #f15454; /*错误色*/
+  --title-color1: #333333; /*用于标题颜色*/
+  --border-color: #dee0e0; /*边框的颜色*/
+  --border-color2: #c5c7c7; /*边框的颜色*/
+  --border-color3: #cacccc; /*边框的颜色*/
+  --font-h1: 38px;
+  --font-h2: 32px;
+  --font-h3: 20px;
+  --font-title2: 24px;
+  --font-title3: 18px;
+  --font-title: 20px;
+  --font-body: 14px;
+  --font-body2: 16px;
+  --ratio: 1;
+  --ratio-75: 1;
+  --antd-wave-shadow-color: #000000;
+}

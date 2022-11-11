@@ -1,0 +1,15 @@
+@font-face {
+    font-family: Light;
+    src: url("./Rany.otf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Bold;
+    src: url("./Rany-Bold.otf");
+    font-display: swap;
+}
+@font-face {
+    font-family: Number;
+    src: url("./DigifaceWide.ttf");
+    font-display: swap;
+}

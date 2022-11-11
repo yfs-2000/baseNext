@@ -1,0 +1,124 @@
+$primary-color: var(--primary-color);
+$flag-color: var(--body-color1);
+$body-color1: var(--body-color1);
+$body-color2: var(--body-color2); //#ffffff
+$body-color3: var(--body-color3);
+$body-color4: var(--body-color4); //666666
+$body-color5: var(--body-color5); //#999999
+$border-color: var(--border-color); //#E0E0E0
+$border-color2: var(--border-color2);
+$border-color3: var(--border-color3);
+$title-color1: var(--title-color1); //#333333
+$base-bg: var(--base-bg);
+$base-bg2: var(--base-bg2);
+$base-bg3: var(--base-bg3);
+$base-bg4: var(--base-bg4); //#f5f7f7
+$error-color: var(--error-color);
+$success-color: var(--successful);
+$titleSize1: var(--font-title); //20px
+$titleSize2: var(--font-title2);
+$titleSize3: var(--font-title3); //18px
+$body2: var(--font-body2); //16px
+$body1: var(--font-body); //14px
+$h3: var(--font-h3);
+$h4: var(--font-title3);
+$h2: var(--font-h2);
+$h1: var(--font-h1);
+$h5: $body2;
+$safeDistance: 15px;
+$navHeight: 70px;
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin textCenter($height) {
+  height: $height;
+  line-height: $height;
+  text-align: center;
+}
+@mixin lineClamp($lineNumber) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineNumber;
+  -webkit-box-orient: vertical;
+}
+@mixin bgMas($bgColor) {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: $bgColor;
+}
+%subscript {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+    width: 26px;
+    height: 6px;
+    background-color: $primary-color;
+    z-index: -1;
+  }
+}
+@mixin dot($top) {
+  position: relative;
+  padding-left: 13px;
+  &:before {
+    position: absolute;
+    content: "";
+    height: 7px;
+    width: 7px;
+    border: 1px solid $primary-color;
+    border-radius: 50%;
+    left: 0;
+    top: $top;
+  }
+}
+%backgroundCenter {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@function size($args) {
+  // @return calc( * var(--padding--size));
+  @return calc(#{$args} * var(--ratio));
+}
+@function size75($args) {
+  // @return calc( * var(--padding--size));
+  @return calc(#{$args} * var(--ratio-75));
+}
+@mixin paddingSafe($maxWidth: 1300px, $safe: size(60px)) {
+  margin: 0 auto;
+  width: 100%;
+  max-width: Min(#{$maxWidth}, 100% - #{$safe});
+}
+%verticalCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+%shade02 {
+  position: relative;
+  &:after {
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
