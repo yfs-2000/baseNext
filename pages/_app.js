@@ -1,4 +1,3 @@
-import "../styles/globals.css";
 import Head from "next/head";
 //import Script from "next/script"; 谷歌分析等需要放置在_app 中
 import Content from "container/content";
@@ -40,10 +39,11 @@ function App({ Component, pageProps }) {
       </Head>
       <ChakraProvider>
         <WagmiConfig client={client}>
-          <Component {...pageProps} />
+          <Content>
+            <Component {...pageProps} />
+          </Content>
         </WagmiConfig>
       </ChakraProvider>
-      <Content></Content>
     </div>
   );
 }

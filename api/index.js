@@ -12,6 +12,7 @@ let instance = axios.create({
     },
   },
 });
+
 // 请求响应拦截器
 instance.interceptors.response.use(
   (response) => {
@@ -28,7 +29,7 @@ instance.interceptors.response.use(
     } else {
       //响应异常
       toast({
-        title: "Network error",
+        title: error.message ? error.message : "Network error",
         status: "error",
       });
     }

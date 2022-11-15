@@ -27,11 +27,7 @@ $h1: var(--font-h1);
 $h5: $body2;
 $safeDistance: 15px;
 $navHeight: 70px;
-%center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 @mixin textCenter($height) {
   height: $height;
   line-height: $height;

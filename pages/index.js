@@ -1,9 +1,7 @@
-import styles from "../styles/Home.module.css";
 import useBearStore from "store/useBearStore";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Button } from "@chakra-ui/react";
-import { InjectedConnector } from "wagmi/connectors/injected";
 import { useAccount, useConnect, useEnsName, useClient } from "wagmi";
 import { useState, useEffect } from "react";
 export default function Home() {
@@ -46,7 +44,7 @@ export default function Home() {
     autoConnect();
   }, []);
   return (
-    <div className={styles.container}>
+    <div>
       <div>
         {t("count")}:{bears}
       </div>
@@ -55,15 +53,15 @@ export default function Home() {
       </Button>
       {connectors.map((connector) => (
         <Button
-          disabled={!connector.ready}
+          //disabled={!connector.ready}
           key={connector.id}
           onClick={() => connect({ connector })}
         >
           {connector.name}
           {/*{!connector.ready && " (unsupported)"}*/}
-          {/*{isLoading &&*/}
-          {/*  connector.id === pendingConnector?.id &&*/}
-          {/*  " (connecting)"}*/}
+          {isLoading &&
+            connector.id === pendingConnector?.id &&
+            " (connecting)"}
         </Button>
       ))}
     </div>
