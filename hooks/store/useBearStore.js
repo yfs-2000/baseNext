@@ -2,7 +2,7 @@ import create from "zustand";
 import { devtools } from "zustand/middleware";
 //https://github.com/pmndrs/zustand   api 文档
 const enabled = process.env.NEXT_PUBLIC_ENV === "development";
-const usePlainStore = create(
+const useBearStore = create(
   devtools(
     (set) => ({
       bears: 0,
@@ -12,4 +12,5 @@ const usePlainStore = create(
     { enabled }
   )
 );
-export default usePlainStore;
+
+export default useBearStore;

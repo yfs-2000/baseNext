@@ -5,10 +5,13 @@ import { useRouter } from "next/router";
 import NProgress from "nprogress"; //全局的css样式都要放这里
 import { useEffect } from "react";
 import { appWithTranslation } from "next-i18next";
-import { ChakraProvider } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { Toaster } from "react-hot-toast";
 import { WagmiConfig } from "wagmi";
 import client from "../web3/client";
+import theme from "../common/theme";
+
 function App({ Component, pageProps }) {
   const router = useRouter();
 
@@ -37,13 +40,15 @@ function App({ Component, pageProps }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <ChakraProvider>
+      <ThemeProvider theme={theme}>
         <WagmiConfig client={client}>
+          <CssBaseline />
+          <Toaster position="top-center" />
           <Content>
             <Component {...pageProps} />
           </Content>
         </WagmiConfig>
-      </ChakraProvider>
+      </ThemeProvider>
     </div>
   );
 }

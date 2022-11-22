@@ -1,5 +1,6 @@
 import axios from "axios";
-import toast from "components/toast";
+import useTokenStore from "store/useTokenStore";
+import toast from "react-hot-toast";
 const baseURL = process.env.NEXT_PUBLIC_API;
 // 实例化 ajax请求对象
 let instance = axios.create({
@@ -28,10 +29,7 @@ instance.interceptors.response.use(
       /*这个为当前自己设置取消请求  没有必要有提示*/
     } else {
       //响应异常
-      toast({
-        title: error.message ? error.message : "Network error",
-        status: "error",
-      });
+      toast.error(error.message ? error.message : "Network error");
     }
 
     return Promise.reject(error);
@@ -41,7 +39,8 @@ instance.interceptors.response.use(
 // 添加拦截器，处理 公用请求参数，和通用请求头部
 instance.interceptors.request.use(
   (config) => {
-    const token = sessionStorage.getItem("infoToken");
+    const token = useTokenStore?.getState()?.token;
+    console.log(token);
     // console.log(tokenObj)
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

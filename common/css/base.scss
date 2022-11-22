@@ -1,0 +1,72 @@
+//样式重置
+
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+ul,
+ol,
+th,
+td,
+button,
+figure,
+input,
+textarea,
+form,
+pre,
+blockquote,
+figure{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  /* 小手 */
+  //cursor: pointer;
+  /* 取消超链接的默认下划线 */
+  text-decoration:none;
+  /* antd里面还做了 ， 看你团队需不需要这样的风格 */
+ // transition: color 0.3s ease;
+}
+
+ol,
+ul{
+  /* 去除自带的ugly样式。 */
+  list-style:none
+}
+
+button,input,select,textarea{
+  outline: none;
+}
+
+//a,
+//input,
+//select,
+//button,
+//textarea {
+//  font-family: inherit;
+//  font-size: inherit;
+//  font-weight: inherit;
+//  font-style: inherit;
+//  line-height: inherit;
+//  color: inherit;
+//  outline: none;
+//}
+
+/**
+ * 删除Firefox中的内边框和填充。
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}

@@ -1,12 +1,17 @@
 import useBearStore from "store/useBearStore";
+import useTokenStore from "store/useTokenStore";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import { Button } from "@chakra-ui/react";
 import { useAccount, useConnect, useEnsName, useClient } from "wagmi";
 import { useState, useEffect } from "react";
+import { login } from "../api/login";
+import useHydration from "../hooks/store/useHydration";
 export default function Home() {
   const bears = useBearStore((state) => state.bears);
+  const token = useTokenStore((state) => state.token);
+  const hasHydrated = useHydration();
   const increasePopulation = useBearStore((state) => state.increasePopulation);
+  const setToken = useTokenStore((state) => state.setToken);
   const { t } = useTranslation(); //多个json时  需要声明
 
   const { address, isConnected } = useAccount();
@@ -45,25 +50,13 @@ export default function Home() {
   }, []);
   return (
     <div>
+      {hasHydrated && (
+        <div onClick={() => setToken("123213123")}>token{token}</div>
+      )}
+      <div>{address}</div>
       <div>
         {t("count")}:{bears}
       </div>
-      <Button colorScheme="teal" onClick={increasePopulation}>
-        {t("clickAdd")}
-      </Button>
-      {connectors.map((connector) => (
-        <Button
-          //disabled={!connector.ready}
-          key={connector.id}
-          onClick={() => connect({ connector })}
-        >
-          {connector.name}
-          {/*{!connector.ready && " (unsupported)"}*/}
-          {isLoading &&
-            connector.id === pendingConnector?.id &&
-            " (connecting)"}
-        </Button>
-      ))}
     </div>
   );
 }
